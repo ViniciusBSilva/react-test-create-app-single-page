@@ -1,8 +1,30 @@
 import '../App.css';
+import ListItem from './ListItem';
+
+function appendItens(jsonElement) {
+
+    const itens = [];
+
+    for (const key in jsonElement) {
+        if (typeof jsonElement[key] !== "object") {
+            itens.push(
+                <ListItem
+                    key={key.id}
+                    elementKey={key}
+                    elementValue={jsonElement[key]}
+                />);
+        } else {
+            itens.push(...appendItens(jsonElement[key]));
+        }
+    }
+
+    return itens;
+
+}
 
 export function UserDataSection(props) {
 
-    console.log(props);
+    const itens = appendItens(props.data);
 
     return (
 
@@ -10,14 +32,7 @@ export function UserDataSection(props) {
             <h2>User Info</h2>
             <div id="userdata">
                 <dl>
-                    <dt id="lblFullName">Name:</dt>
-                    <dd id="fullName">abcd</dd>
-
-                    <dt id="lblUsrName">Username:</dt>
-                    <dd id="usrName">abcd</dd>
-
-                    <dt id="lblEmail">Email:</dt>
-                    <dd id="email">abcd@abc</dd>
+                    {itens}
                 </dl>
             </div>
         </section>

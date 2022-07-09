@@ -1,56 +1,46 @@
-import '../App.css';
+// import '../App.css';
 
-function fillUserData(data) {
+// function fillUserData(data) {
 
-    const elFullName = document.getElementById('fullName');
-    elFullName.textContent = data.name;
+//     const elFullName = document.getElementById('fullName');
+//     elFullName.textContent = data.name;
 
-    const elUsrName = document.getElementById('usrName');
-    elUsrName.textContent = data.username;
+//     const elUsrName = document.getElementById('usrName');
+//     elUsrName.textContent = data.username;
 
-    const elEmail = document.getElementById('email');
-    elEmail.textContent = data.email;
+//     const elEmail = document.getElementById('email');
+//     elEmail.textContent = data.email;
 
-}
+// }
 
-function getUserDataFromAPI(id) {
+// // function selectUser(id) {
+// //     getUserDataFromAPI(id).then(json => fillUserData(json));
+// // }
 
-    const url = "https://jsonplaceholder.typicode.com/users/";
-    const fullUrl = url + id;
+// function getUsers() {
+//     return [1, 2];
+// }
 
-    return fetch(fullUrl)
-        .then(response => response.json());
+// export function Navigation(props) {
 
-}
+//     const users = [];
 
-function selectUser(id) {
-    getUserDataFromAPI(id).then(json => fillUserData(json));
-}
+//     getUsers().forEach(userId => {
+//         users.push(
+//             <li key={userId}>
+//                 <button onClick={() => selectUser(userId)}>
+//                     User #{userId}
+//                 </button>
+//             </li>
+//         );
+//     });
 
-function getUsers() {
-    return [1, 2];
-}
+//     return (
+//         <nav>
+//             <ul>
+//                 {users}
+//             </ul>
+//         </nav>
+//     );
 
-export function Navigation(props) {
-
-    const users = [];
-
-    getUsers().forEach(userId => {
-        users.push(
-            <li key={userId}>
-                <button onClick={() => selectUser(userId)}>
-                    User #{userId}
-                </button>
-            </li>
-        );
-    });
-
-    return (
-        <nav>
-            <ul>
-                {users}
-            </ul>
-        </nav>
-    );
-
-}
+// }
